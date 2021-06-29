@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta property="og:locale" content="ru_RU" />
+    <meta name="description" content="<?php echo $description; ?>" />
+    <meta property="og:title" content="<?php echo $title; ?>" />
+    <meta property="og:description" content="<?php echo $description; ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/logo.png" />
+    <meta name="keywords" content="<?php echo $keywords; ?>" />
+    <meta name="yandex-verification" content="7438077c1259cd61" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='css/itsbpro.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='slick/slick-theme.css')}}"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:600,800|Roboto+Condensed|Roboto:400,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="{{url_for('static', filename='images/logo.png')}}"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <nav class="nav long-block">
+      <div class="nav__inside common-block">
+        <div class="nav__favicon">
+          <a href="/" class="link-nav__favicon"><img src="{{url_for('static', filename='images/item.png')}}" class="nav__nav__favicon-img"></a>
+          <div class="nav__number-zone number-zone">
+            <p><a href="tel:88612176646" class="number-zone__phone">+7(861)217-66-46</a></p>
+            <p><a href="#main-page-form-block" class="number-zone__btn">обратный звонок</a></p>
+          </div>
+          <div class="nav__toggle-btn">
+            <svg
+              version="1.1"
+              class="nav__toggle-stick"
+              viewBox="0 0 18 12"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+            >
+              <title />
+              <desc />
+              <defs />
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                id="Page-1"
+                stroke="none"
+                stroke-width="1"
+              >
+                <g
+                  fill="#3A3737"
+                  id="Core"
+                  transform="translate(-87.000000, -342.000000)"
+                >
+                  <g id="menu" transform="translate(87.000000, 342.000000)">
+                    <path
+                      d="M0,12 L18,12 L18,10 L0,10 L0,12 L0,12 Z M0,7 L18,7 L18,5 L0,5 L0,7 L0,7 Z M0,0 L0,2 L18,2 L18,0 L0,0 L0,0 Z"
+                      id="Shape"
+                    />
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <ul class="nav__menu">
+          <li class="nav__link-wrap">
+            <a href="/" class="nav__link">Главная</a>
+            <hr class="nav__top-hr" />
+          </li>
+          <li class="nav__link-wrap">
+            <a href="/services" class="nav__link">Услуги</a>
+            <hr class="nav__top-hr" />
+          </li>
+          <!-- <li class="nav__link-wrap"><a href="#" class="nav__link">Новости</a><hr class="nav__top-hr"></li> -->
+          <li class="nav__link-wrap">
+            <a href="/price" class="nav__link">Цены</a>
+            <hr class="nav__top-hr" />
+          </li>
+          <li class="nav__link-wrap">
+            <a href="/contacts" class="nav__link">Контакты</a>
+            <hr class="nav__top-hr" />
+          </li>
+          {% if current_user.has_role('Admin') %}
+            <li class="nav__link-wrap">
+              <a href="/admin" class="nav__link">Администратор</a>
+              <hr class="nav__top-hr" />
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+    <main>
+      {% block content %}{% endblock %}
+      <div class="common-block main-page-form-block" id="main-page-form-block">
+        <div class="page-title">
+          <div class="page-title__icon"></div>
+          <h2 class="page-title__title">Свяжитесь с нами</h2>
+        </div>
+        <div class="mpf-zone common-block">
+          {% include 'common/form.html' %}
+        </div>
+      </div>
+    </main>
+
+  <footer class="long-block">
+    <div class="footer common-block">
+      <div class="col footer__logo-wrapper">
+        <img class="footer__img" data-src="{{url_for('static', filename='images/whitelogo.png')}}" src="" alt="" />
+        <p class="footer__logo-title">
+          IT, ОХРАННЫЕ СИГНАЛИЗАЦИИ И СИСТЕМЫ ВИДЕОНАБЛЮДЕНИЯ
+        </p>
+        <p class="footer__logo-text">© 2014. Все права защищены</p>
+      </div>
+      <ul class="footer-menu col">
+        <p class="footer__col-title">Карта сайта</p>
+        <li class="footer-link-wrap">
+          <a href="index.php" class="nav__link">Главная</a>
+        </li>
+        <li class="footer-link-wrap">
+          <a href="nashi-uslugi.php" class="nav__link">Услуги</a>
+        </li>
+        <!-- <li class="footer-link-wrap"><a href="#" class="nav__link">Новости</a></li> -->
+        <li class="footer-link-wrap">
+          <a href="price.php" class="nav__link">Цены</a>
+        </li>
+        <li class="footer-link-wrap">
+          <a href="contact.php" class="nav__link">Контакты</a>
+        </li>
+        <li class="footer-link-wrap">
+          <a href="privacy.php" class="nav__link"
+            >Политика конфиденциальности</a
+          >
+        </li>
+      </ul>
+      <ul class="col footer-popular-services">
+        <p class="footer__col-title">Популярные</p>
+        <li class="footer-link-wrap">
+          <a href="video.php" class="nav__link">Видеонаблюдение</a>
+        </li>
+        <li class="footer-link-wrap">
+          <a href="obsluzhivanie_orgtehniki.php" class="nav__link"
+            >Обслуживание оргтехники</a
+          >
+        </li>
+        <li class="footer-link-wrap">
+          <a href="ohrana.php" class="nav__link">Охранные сигнализации</a>
+        </li>
+        <li class="footer-link-wrap">
+          <a href="ip-telephoniya.php" class="nav__link">IP-телефония</a>
+        </li>
+        <li class="footer-link-wrap">
+          <a href="razrabotka_sitov.php" class="nav__link"
+            >Разработка сайтов</a
+          >
+        </li>
+        <li class="footer-link-wrap">
+          <a href="video.php" class="nav__link">Камеры видеонаблюдения</a>
+        </li>
+      </ul>
+      <ul class="col footer__contacts" id="footer__contacts">
+        <p class="footer__col-title">Контакты</p>
+        <li class="footer-link-wrap">
+          <a href="tel:88612176646" class="nav__link"
+            ><i class="fas fa-phone"></i>+7(861)217-66-46</a
+          >
+        </li>
+        <li class="footer-link-wrap">
+          <a href="mailto:info@itprotection.ru" class="nav__link"
+            ><i class="fas fa-envelope"></i>info@itprotection.ru</a
+          >
+        </li>
+        <li class="footer-link-wrap">
+          <a href="mailto:support@itprotection.ru" class="nav__link"
+            ><i class="fas fa-envelope"></i>support@itprotection.ru</a
+          >
+        </li>
+        <li class="footer-link-wrap">
+          <a href="#footer__contacts" class="nav__link"
+            ><i class="fas fa-map-marker-alt"></i>г.Краснодар ул.Красных
+            Партизан, 393</a
+          >
+        </li>
+      </ul>
+    </div>
+  </footer>
+  
+  <div class="modal dn">
+    <div class="modal__content">
+      <div class="modal__header">
+        <p class="modal__title">Отправка данных</p>
+        <p class="modal__exit">&times;</p>
+      </div>
+      <div class="modal__main">
+        <div class="modal__loading">
+          <img src="../images/logo.png" alt="" class="modal__loading-img" />
+          <p class="modal__loading-subtitle">Ваши данные отправляются...</p>
+        </div>
+        <div class="modal__success dn">
+          <h2 class="modal__success-title">Ваши данные отправлены!</h2>
+          <p class="modal__success-subtitle">
+            Ожидайте, с Вами скоро свяжутся
+          </p>
+        </div>
+        <div class="modal__error dn">
+          <h2 class="modal__error-title">Данные не отправлены!</h2>
+          <p class="modal__success-subtitle">
+            Пожалуйста перезагрузите страницу
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="{{url_for('static', filename='js/jquery.js')}}"></script>
+  <!-- <script type="text/javascript" src="{{url_for('static', filename='slick/slick.min.js')}}"></script> -->
+  <script src="https://kit.fontawesome.com/42fe12cbb5.js" async></script>
+  <script src="{{url_for('static', filename='js/itsbpro.js')}}"></script>
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] =
+        m[i] ||
+        function () {
+          (m[i].a = m[i].a || []).push(arguments);
+        };
+      m[i].l = 1 * new Date();
+      (k = e.createElement(t)),
+        (a = e.getElementsByTagName(t)[0]),
+        (k.async = 1),
+        (k.src = r),
+        a.parentNode.insertBefore(k, a);
+    })(
+      window,
+      document,
+      "script",
+      "https://mc.yandex.ru/metrika/tag.js",
+      "ym"
+    );
+  
+    ym(68146969, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+    });
+  </script>
+  <noscript
+    ><div>
+      <img
+        src="https://mc.yandex.ru/watch/68146969"
+        style="position: absolute; left: -9999px"
+        alt=""
+      /></div
+  ></noscript>
+  <!-- /Yandex.Metrika counter -->
+  </body>
+  </html>

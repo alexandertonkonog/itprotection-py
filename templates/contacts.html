@@ -1,0 +1,37 @@
+{% extends 'common/mainTemplate.html' %}
+{% block title %}Контакты{% endblock %}
+{% block content %}
+<div class="title-all-page common-block">
+    <div class="page-title__icon"></div>
+    <h2 class="page-title__title">Контакты</h2>
+</div>
+<div class="category-block common-block">
+    <div class="map-block min-block">
+        <div class="map-block__inside">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A8a47f91f2c9badd6f11b8cbda10fd0ac6d955eab88ff600841c505200804a6ed&amp;source=constructor"  frameborder="0"></iframe>
+        </div>
+        <ul class="footer__contacts" id="footer__contacts">
+            <p class="footer__col-title">Приемная</p>
+             <li class="footer-link-wrap"><a href="tel:88612176646" class="nav__link"><i class="fas fa-phone"></i>+7(861)217-66-46</a></li>
+             <li class="footer-link-wrap"><a href="mailto:info@itprotection.ru" class="nav__link"><i class="fas fa-envelope"></i>info@itprotection.ru</a></li>
+             <li class="footer-link-wrap"><a href="mailto:support@itprotection.ru" class="nav__link"><i class="fas fa-envelope"></i>support@itprotection.ru</a></li>
+             <li class="footer-link-wrap"><a href="#footer__contacts" class="nav__link"><i class="fas fa-map-marker-alt"></i>г.Краснодар ул.Красных Партизан, 393</a></li>
+         </ul>
+    </div>
+</div>
+<div class="common-block">
+    <div class="page-title">
+        <div class="page-title__icon  "></div>
+        <h2 class="page-title__title ">О нас</h2>
+    </div>
+</div>
+<div class="category-block common-block">
+    <div class="about-us-block min-block">
+        <img src="" class="aub-img lazy-img" data-src="{{url_for('static', filename='images/cam2.jpg')}}" class="article__img">
+        <div class="aub-des">
+            <p>С момента основания в 2014 году <strong>it PROTECTION</strong> занимается созданием реальных продуктов для систем видеонаблюдения, опираясь на собственные инновационные решения и Ваши пожелания. Эффективность такого подхода позволила установить несметное количество комплексов обеспечения визуального контроля на территории Краснодарского края и за его пределами.</p>
+            <p>Мы ежегодно подтверждаем статус ведущих работников отрасли и основного законодателя технологий новыми разработками и реализацией проектов любой сложности и масштабов, гордимся своими достижениями и уверенно смотрим в будущее! </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

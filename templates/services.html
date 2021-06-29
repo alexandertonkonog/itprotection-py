@@ -1,0 +1,25 @@
+{% extends 'common/mainTemplate.html' %}
+{% block title %}Наши услуги{% endblock %}
+{% block content %}
+<div class="title-all-page common-block">
+  <div class="page-title__icon"></div>
+  <h2 class="page-title__title">Наши услуги</h2>
+</div>
+<section class="inside-services common-block services-page">
+  {% for item in services: %}
+  <article class="is-item">
+    <a href="/services/{{item.link}}">
+        <img data-src="{{url_for('static', filename=item.img)}}" class="is-item__img lazy-img" src="" alt="" />
+    </a>
+    <div class="is-item__des">
+        <a href="/services/{{item.link}}" class="is-item__link">
+            <h2 class="is-item__title">{{item.name}}</h2>
+        </a>
+        <a href="/services/{{item.link}}" class="btn btn_is-item">Подробнее</a>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}
+
+    

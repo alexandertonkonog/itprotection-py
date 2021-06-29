@@ -1,0 +1,15 @@
+{% extends 'common/mainTemplate.html' %}
+{% block title %} Страница не найдена {% endblock title %}
+{% block content %}
+<div class="min-block">
+    <div class="error">
+        <div class="error__inside">
+            <h2 class="error__title">it</h2>
+            <img class="error__img" src="{{url_for('static', filename='images/logo.png')}}" alt="">
+            <h2 class="error__title">404</h2>
+        </div>
+        <p class="error__text">Данной страницы не существует или она редактируется</p>
+        <a class="error__link" href="/"><i class="fas fa-undo"></i>Вернуться на главную</a>
+    </div>
+</div>
+{% endblock content %}

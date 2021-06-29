@@ -1,0 +1,45 @@
+{% extends 'common/mainTemplate.html' %}
+{% block title %}{{service.name}}{% endblock %}
+{% block content %}
+    <div class="article">
+        <section class="min-block article__header">
+            <div  class="article__title-wrapper">
+                <div>
+                    <h1 class="article__title">{{service.name}}</h1>
+                    <hr>
+                    <p class="article__des">{{service.text}}</p>
+                    <a href="#main-page-form-block" class="btn btn_red">ЗАКАЗАТЬ</a>
+                </div>
+                <img src="{{url_for('static', filename=service.img)}}" class="article__img">
+            </div>		
+        </section>
+        <section class="min-block">
+            <div class="page-title">
+                <div class="page-title__icon"></div>
+                <h2 class="page-title__title">Наши преимущества</h2>
+            </div>
+            <div class="article__pluses">
+                <div class="our-plus__item">
+                    <p class="article-plus__icon"><i class="fas fa-car"></i></p>
+                    <h3 class="our-plus__title">Бесплатные выезды на место</h3>
+                </div>
+                <div class="our-plus__item">
+                    <p class="article-plus__icon"><i class="fas fa-ruble-sign"></i></p>
+                    <h3 class="our-plus__title">Дешевле, чем штатный специалист</h3>
+                </div>
+                <div class="our-plus__item">
+                    <p class="article-plus__icon"><i class="fas fa-cloud"></i></p>
+                    <h3 class="our-plus__title">Бесплатные консультации</h3>
+                </div>
+                <div class="our-plus__item">
+                    <p class="article-plus__icon"><i class="fas fa-forward"></i></p>
+                    <h3 class="our-plus__title">Быстрое реагирование</h3>
+                </div>
+                <div class="our-plus__item">
+                    <p class="article-plus__icon"><i class="fas fa-file"></i></p>
+                    <h3 class="our-plus__title">Ежемесячная отчетность</h3>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
